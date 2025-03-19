@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      background-color: blueviolet;
+      border: 4px dotted gray;
+      padding: 10px;
+      margin: 10px;
+      color: white;
+      position: relative;
+    }
+
+    .block {
+      display: block;
+    }
+
+    .inline {
+      display: inline;
+    }
+
+    .inline_block {
+      display: inline-block;
+      width: 100px;
+      height: 50px;
+    }
+  </style>
+  <body>
+    <h3>원래 배치 모습</h3>
+    <div class="box">div</div>
+    <span class="box">span</span>
+    <span class="box">span</span>
+    <div class="box">div</div>
+
+    <h3>블록 모습</h3>
+    <div class="box block">div</div>
+    <span class="box block">span</span>
+    <span class="box block">span</span>
+    <div class="box block">div</div>
+
+    <h3>인라인 모습</h3>
+    <div class="box inline">div</div>
+    <span class="box inline">span</span>
+    <span class="box inline">span</span>
+    <div class="box inline">div</div>
+
+    <h3>인라인-블록 모습</h3>
+    <div class="box inline_block">div</div>
+    <span class="box inline_block">span</span>
+    <span class="box inline_block">span</span>
+    <div class="box inline_block">div</div>
+  </body>
+</html>

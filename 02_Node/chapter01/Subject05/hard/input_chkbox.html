@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let btn = document.getElementById('btn');
+
+        btn.addEventListener('click', function () {
+          let list = [];
+          let chkbox = document.querySelectorAll(
+            'input[name = "food"]:checked'
+          );
+
+          chkbox.forEach(function (chkbox) {
+            list.push(chkbox.value);
+          });
+          console.log(list);
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div>
+      <label><input type="checkbox" name="food" value="라면" />라면</label>
+      <label><input type="checkbox" name="food" value="만두" />만두</label>
+      <label><input type="checkbox" name="food" value="불고기" />불고기</label>
+      <input id="btn" type="button" value="전송" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Example</title>
+  </head>
+  <body>
+    <form id="myForm" method="get">
+      <input type="text" name="a" id="b" />
+      <button type="submit">제출</button>
+    </form>
+
+    <script>
+      //#myForm
+      const form = document.querySelector('#myForm');
+      const form1 = document.querySelector('#b');
+
+      //폼 제출 이벤트
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        //유효성 검사
+      });
+
+      //   input.addEventListener('keyup', function (event) {
+      //     console.log('입력된 값: ', event.key);
+      //     console.log('입력된 값: ', event.keyCode);
+      //   });
+
+      document.addEventListener('mousemove', function (event) {
+        const x = event.clientX;
+        const y = event.clientY;
+
+        console.log(`X = ${x} Y = ${y}`);
+      });
+    </script>
+  </body>
+</html>

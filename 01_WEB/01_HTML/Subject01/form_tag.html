@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <table>
+        <thead>
+          <h3>회원 가입</h3>
+        </thead>
+        <tbody>
+          <tr>
+            <td>아이디</td>
+            <td>
+              <input type="text" name="id" />
+            </td>
+          </tr>
+          <tr>
+            <td>이름</td>
+            <td>
+              <input type="text" name="name" />
+            </td>
+          </tr>
+          <tr>
+            <td>비밀번호</td>
+            <td>
+              <input type="password" name="password" />
+            </td>
+          </tr>
+          <tr>
+            <td>비밀번호 확인</td>
+            <td>
+              <input type="password" name="password" />
+            </td>
+          </tr>
+          <tr>
+            <td>전화번호</td>
+            <td>
+              <input type="text" name="call" placeholder="010-123-4567" />
+            </td>
+          </tr>
+          <tr>
+            <td>이메일</td>
+            <td>
+              <input type="email" />@<select name="email">
+                <option>naver.com</option>
+                <option>gmail.com</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>문자수신 여부</td>
+            <td>
+              <input type="radio" name="text" />예
+              <input type="radio" name="text" checked />아니오
+            </td>
+          </tr>
+          <tr>
+            <td>가입 경로</td>
+            <td>
+              <input type="checkbox" name="itme1" />친구소개
+              <input type="checkbox" name="itme2" />인터넷 검색
+              <input type="checkbox" name="itme3" />블로그
+              <input type="checkbox" name="itme4" />기타
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 서브밋 버튼-->
+      <input type="submit" name="submit" />
+    </form>
+  </body>
+</html>

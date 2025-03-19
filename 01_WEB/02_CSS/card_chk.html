@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>반응형 웹 예제</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 1200px;
+        background-color: #f0f0f0;
+      }
+
+      header {
+        background-color: black;
+        color: white;
+        padding: 15px;
+        font-size: 25px;
+      }
+
+      nav {
+        background-color: wheat;
+        padding: 10px;
+      }
+
+      nav ul {
+        list-style: none;
+      }
+
+      nav ul li {
+        display: inline;
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: blue;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 40px;
+      }
+
+      .gallery {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        width: 300px;
+        background-color: white;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .card-content {
+        padding: 15px;
+      }
+
+      .card h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      footer {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      @media (min-width: 1025px) {
+        body {
+          background-color: #f0f0f0;
+        }
+        .gallery {
+          justify-content: flex-start;
+        }
+        .card img {
+          height: auto;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        body {
+          background-color: plum;
+        }
+        .container {
+          padding: 20px 30px;
+        }
+        .gallery {
+          justify-content: flex-start;
+          gap: 15px;
+        }
+        .card {
+          width: 45%;
+        }
+        .card img {
+          height: 180px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        body {
+          background-color: greenyellow;
+        }
+        .container {
+          padding: 20px 20px;
+        }
+        .gallery {
+          flex-direction: column;
+          align-items: center;
+        }
+        .card {
+          width: 90%;
+        }
+        .card img {
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>반응형 웹 예제</header>
+
+    <nav>
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">소개</a></li>
+        <li><a href="#">갤러리</a></li>
+        <li><a href="#">연락처</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <section class="gallery">
+        <article class="card">
+          <img src="https://picsum.photos/300/200" alt="랜덤 이미지 1" />
+          <div class="card-content">
+            <h2>카드 제목 1</h2>
+            <p>여기에 카드 내용이 들어갑니다.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/300/200" alt="랜덤 이미지 2" />
+          <div class="card-content">
+            <h2>카드 제목 2</h2>
+            <p>여기에 카드 내용이 들어갑니다.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="https://picsum.photos/300/200" alt="랜덤 이미지 3" />
+          <div class="card-content">
+            <h2>카드 제목 3</h2>
+            <p>여기에 카드 내용이 들어갑니다.</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>© 2025 반응형 웹 예제. All rights reserved.</footer>
+  </body>
+</html>

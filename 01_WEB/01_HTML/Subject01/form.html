@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FORM</title>
+  </head>
+  <body>
+    <form method="get" action="" enctype="multipart/form-data">
+      <h3>텍스트 입력창</h3>
+      이름 : <input type="text" name="name" />
+
+      <hr />
+      <h3>비밀번호 입력 창</h3>
+      비밀번호 : <input type="password" />
+
+      <hr />
+      <h3>라디오 버튼</h3>
+      이메일 수신 : <input type="radio" name="email" />동의함
+      <input type="radio" name="email" checked />동의하지않음
+
+      <hr />
+      <h3>체크 박스</h3>
+      <p>TV에서 즐겨보는 장르는?</p>
+      <input type="checkbox" name="item1" />뉴스
+      <input type="checkbox" name="item2" />드라마
+      <input type="checkbox" name="item3" />둘 다
+
+      <hr />
+      <h3>선택 박스</h3>
+      이메일 : <input type="text" placeholder="아이디" />@
+      <select name="email">
+        <option>naver.com</option>
+        <option>gmail.com</option>
+      </select>
+
+      <hr />
+      <h3>남기고 싶은 말</h3>
+      <textarea row="5" cols="80"></textarea>
+
+      <hr />
+      <h3>파일 업로드</h3>
+      <input type="file" />
+      <!-- 서브밋 버튼 -->
+      <hr />
+      <input type="submit" name="submit" />
+    </form>
+  </body>
+</html>

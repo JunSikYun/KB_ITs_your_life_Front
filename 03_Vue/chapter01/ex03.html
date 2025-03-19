@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Teacher Solution -->
+      <ul>
+        <li v-for="student in students" :key="student.id">
+          {{student.id}}번 학생 : {{ student.name }}
+          <span :style="{ color: student.score <= 70 ? 'red' : 'black' }">
+            ({{ student.score }})
+          </span>
+          <span v-if="student.score >= 90"> [우수]</span>
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      const app = Vue.createApp({
+        name: 'App',
+        data() {
+          return {
+            students: [
+              { id: 1, name: '김철수', score: 95 },
+              { id: 2, name: '이영희', score: 55 },
+              { id: 3, name: '박민수', score: 78 },
+              { id: 4, name: '정지원', score: 92 },
+              { id: 5, name: '최수진', score: 45 },
+            ],
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

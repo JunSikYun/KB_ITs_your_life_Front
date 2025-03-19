@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--    <style>
+      .rounded-image {
+        border-radius: 8px;
+        border: 2px solid #ccc;
+        padding: 5px;
+      }
+    </style>-->
+  </head>
+  <body>
+    <div id="app">
+      <!-- <button :disabled="isButtonDisabled">{{message}}</button> -->
+      <!--<input :type="submit" :value="message" />-->
+      <!--<img :src="imageUrl" :alt="imageAlt" :class="imageClass" />-->
+      <!--<input v-model="message" />
+      <p>{{message}}</p>-->
+
+      <!-- V-model 과제 1 -->
+      <!-- <input type="text" v-model="inputText" /><input v-model="isChecked" type="checkbox" />
+      <p>입력된 텍스트 : {{inputText}}</p>
+      <p>체크박스 상태 : {{isChecked}}</p> -->
+
+      <!-- V-model 과제 2 -->
+      <!-- <h1>이미지를 선택해주세요</h1>
+      <select v-model="selectedImage">
+        <option value="https://picsum.photos/300/300?random=1">이미지 1</option>
+        <option value="https://picsum.photos/300/300?random=2">이미지 2</option>
+      </select>
+      <br />
+      <img :src="selectedImage" :alt="imgAlt" width="300" height="300" />
+      <p>선택된 이미지 URL: {{ selectedImage }}</p> -->
+
+      <!-- V-model 과제 3 -->
+      <h2>관심있는 스포츠 종목 (다중선택 가능)</h2>
+      <label
+        ><input type="checkbox" value="축구" v-model="selectedSports" />
+        축구</label
+      >
+      <label
+        ><input type="checkbox" value="야구" v-model="selectedSports" />
+        야구</label
+      >
+      <label
+        ><input type="checkbox" value="농구" v-model="selectedSports" />
+        농구</label
+      >
+      <label
+        ><input type="checkbox" value="배구" v-model="selectedSports" />
+        배구</label
+      >
+
+      <p>
+        선택한 스포츠: {{ selectedSports.length > 0 ? selectedSports :
+        '선택사항없음' }}
+      </p>
+
+      <h2>선호하는 시청 방식 (하나만 선택 가능)</h2>
+      <label
+        ><input type="radio" value="현장관람" v-model="selectedView" />
+        현장관람</label
+      >
+      <label
+        ><input type="radio" value="TV중계" v-model="selectedView" />
+        TV중계</label
+      >
+      <label
+        ><input type="radio" value="모바일" v-model="selectedView" />
+        모바일</label
+      >
+      <label
+        ><input type="radio" value="하이라이트" v-model="selectedView" />
+        하이라이트</label
+      >
+
+      <p>
+        선택한 시청 방식: {{ selectedView ? selectedView : '선택사항없음' }}
+      </p>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+      let vm = Vue.createApp({
+        name: 'App',
+        data() {
+          //return 값 안에 있는 값이 Proxy에 저장
+          return {
+            // message: 'Hello Vue3!',
+            // titlestyle: 'color: blue',
+
+            //message: '클릭해보세요',
+            //isButtonDisabled: false,
+
+            //imageUrl: 'https://picsum.photos/200/300',
+            //imageAlt: '랜덤 이미지',
+            //imageClass: 'rounded-image',
+
+            // V-model 과제 1
+            // inputText: 'abc',
+            // isChecked: false,
+
+            // V-model 과제 2
+            // selectedImage: 'https://picsum.photos/300/300?random=1',
+            // imgAlt: '선택된 이미지',
+
+            // V-model 과제 3
+            selectedSports: [],
+            selectedView: '',
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

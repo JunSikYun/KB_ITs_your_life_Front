@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이머 앱</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      #timer {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 1em;
+      }
+      button:disabled {
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="timer">{{ formattedTime }}</div>
+      <button @click="startTimer" :disabled="isRunning">시작</button>
+      <button @click="pauseTimer">일시정지</button>
+      <button @click="resetTimer">리셋</button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+      let vm = Vue.createApp({
+        data() {
+          return {
+            seconds: 0,
+            timer: null,
+            isRunning: false,
+          };
+        },
+        computed: {
+          formattedTime() {
+            let minutes = Math.floor(this.seconds / 60)
+              .toString()
+              .padStart(2, '0');
+            let secs = (this.seconds % 60).toString().padStart(2, '0');
+            return `${minutes}:${secs}`;
+          },
+        },
+        methods: {
+          startTimer() {
+            if (!this.isRunning) {
+              this.isRunning = true;
+              this.timer = setInterval(() => {
+                this.seconds++;
+              }, 1000);
+            }
+          },
+          pauseTimer() {
+            clearInterval(this.timer);
+            this.isRunning = false;
+          },
+          resetTimer() {
+            clearInterval(this.timer);
+            this.seconds = 0;
+            this.isRunning = false;
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

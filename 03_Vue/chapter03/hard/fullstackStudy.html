@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글 목록</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .header-image {
+        background: url('https://source.unsplash.com/1200x300/?forest,lights')
+          no-repeat center;
+        background-size: cover;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        flex-direction: column;
+        font-weight: bold;
+        text-shadow: 2px 2px 10px black;
+      }
+      .table-container {
+        max-width: 900px;
+        margin: 30px auto;
+      }
+      .card {
+        margin: 0 auto; /* 가운데 정렬 */
+        color: white;
+      }
+      .card-img-overlay {
+        text-align: left; /* 왼쪽 정렬 */
+        padding-left: 20px; /* 왼쪽 패딩 추가 */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Card 이미지 바-->
+    <div class="card" style="width: 500px">
+      <img class="card-img-top" src="image.png" alt="Card image" />
+      <div class="card-img-overlay">
+        <h2 class="cart-title">Fullstack study</h2>
+        <p class="card-text">Vue+자바 기반의 풀스택 기술을 배웁니다.</p>
+      </div>
+    </div>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-laptop-code"></i> Fullstack
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fas fa-user-shield"></i> admin</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="fas fa-sign-out-alt"></i> 로그아웃</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- 글 목록 -->
+    <div class="container table-container">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><i class="fas fa-list"></i> 글 목록</h4>
+          <table class="table table-hover">
+            <thead class="table-primary">
+              <tr>
+                <th>No</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>등록일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  <a href="#"><i class="fas fa-file-alt"></i> 글 제목 1</a>
+                </td>
+                <td>user01</td>
+                <td>2024-04-17</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <a href="#"><i class="fas fa-file-alt"></i> 글 제목 2</a>
+                </td>
+                <td>user01</td>
+                <td>2024-04-17</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>
+                  <a href="#"><i class="fas fa-file-alt"></i> 글 제목 3</a>
+                </td>
+                <td>user01</td>
+                <td>2024-04-17</td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#">&laquo;</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">6</a></li>
+              <li class="page-item"><a class="page-link" href="#">7</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">9</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">10</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">&raquo;</a>
+              </li>
+            </ul>
+          </nav>
+          <button class="btn btn-primary float-end">
+            <i class="fas fa-edit"></i> 글쓰기
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>점수 스타일 변경</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+      }
+      .highlight {
+        background-color: #42b983;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <p :class="{ highlight: score >= 60 }">
+        점수가 60점 이상이면 스타일이 적용됩니다
+      </p>
+      <input
+        type="number"
+        v-model="score"
+        min="0"
+        max="100"
+        class="form-control w-25"
+      />
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const vm = Vue.createApp({
+        data() {
+          return {
+            score: 30,
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

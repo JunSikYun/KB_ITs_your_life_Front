@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06-02</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <button :style="[myColor,myLayout]">버튼 1</button>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      let vm = Vue.createApp({
+        data() {
+          return {
+            myColor: {
+              backgroundColor: 'purple',
+              color: 'yellow',
+            },
+            myLayout: {
+              width: '150px',
+              height: '80px',
+              textAlign: 'center',
+            },
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

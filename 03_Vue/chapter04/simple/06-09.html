@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>06-02</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <style>
+      .btnColor {
+        background-color: aqua;
+        color: black;
+      }
+      .btnAlign {
+        text-align: center;
+        width: 120px;
+      }
+      .btnBorder {
+        border: khaki dashed 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <input type="checkbox" v-model="btnStyle.btnColor" />
+      색상<br />
+      <input type="checkbox" v-model="btnStyle.btnAlign" />
+      정렬, 크기기<br />
+      <input type="checkbox" v-model="btnStyle.btnBorder" />
+      테두리리<br />
+      <button :class="btnStyle">버튼</button>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      let vm = Vue.createApp({
+        data() {
+          return {
+            btnStyle: {
+              btnColor: false,
+              btnAlign: false,
+              btnBorder: false,
+            },
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

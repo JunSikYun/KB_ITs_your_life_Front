@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20pt;
+      }
+      .todo-done {
+        text-decoration: line-through;
+        color: gray;
+      }
+      .container {
+        padding: 10px;
+      }
+      .todo-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .todo-card {
+        position: relative;
+        width: 200px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      .bg-warning {
+        background-color: #ffc107 !important;
+      }
+      .bg-secondary {
+        background-color: #6c757d !important;
+      }
+      .priority-dot {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .todo-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="card card-body bg-light">
+        <div class="title">
+          ToDo - {{ remainingTasks }}/{{ todos.length }} 개 남음
+        </div>
+      </div>
+      <div class="input-group my-3">
+        <input
+          id="msg"
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="할 일을 입력하세요"
+          v-model.trim="todo"
+          @keyup.enter="addTodo"
+        />
+        <button class="btn btn-primary" @click="addTodo">추가</button>
+      </div>
+      <div class="todo-list">
+        <div
+          v-for="item in sortedTodos"
+          :key="item.id"
+          class="todo-card"
+          :class="{ 'bg-warning': !item.isDone, 'bg-secondary': item.isDone }"
+          @click="togglePriority(item)"
+        >
+          <span
+            v-if="item.isPriority"
+            class="priority-dot"
+            @click.stop="togglePriority(item)"
+          ></span>
+          <div>{{ item.content }}</div>
+          <div class="todo-buttons">
+            <button
+              v-if="!item.isDone"
+              class="btn btn-sm btn-outline-dark"
+              @click.stop="toggleDone(item)"
+            >
+              완료
+            </button>
+            <button
+              v-if="item.isDone"
+              class="btn btn-sm btn-outline-light"
+              @click.stop="toggleDone(item)"
+            >
+              되돌리기
+            </button>
+            <button
+              class="btn btn-sm btn-danger"
+              @click.stop="deleteTodo(item.id)"
+            >
+              X
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      var vm = Vue.createApp({
+        data() {
+          return {
+            todo: '',
+            todos: [
+              { id: 1, content: '빨래', isDone: true, isPriority: false },
+              { id: 2, content: '청소', isDone: false, isPriority: false },
+              { id: 3, content: '놀러가기', isDone: true, isPriority: false },
+              { id: 4, content: '푹쉬기', isDone: true, isPriority: false },
+              { id: 5, content: '영상만들기', isDone: true, isPriority: false },
+            ],
+          };
+        },
+        computed: {
+          remainingTasks() {
+            return this.todos.filter((todo) => !todo.isDone).length;
+          },
+          sortedTodos() {
+            return this.todos.sort((a, b) => {
+              if (a.isDone !== b.isDone) return a.isDone - b.isDone;
+              if (a.isPriority !== b.isPriority)
+                return b.isPriority - a.isPriority;
+              return a.content.localeCompare(b.content, 'ko');
+            });
+          },
+        },
+        methods: {
+          addTodo() {
+            if (this.todo.length < 1) return;
+            this.todos.push({
+              id: Date.now(),
+              content: this.todo,
+              isDone: false,
+              isPriority: false,
+            });
+            this.todo = '';
+          },
+          deleteTodo(id) {
+            this.todos = this.todos.filter((todo) => todo.id !== id);
+          },
+          toggleDone(todo) {
+            todo.isDone = !todo.isDone;
+          },
+          togglePriority(todo) {
+            if (!todo.isDone) {
+              todo.isPriority = !todo.isPriority;
+            }
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>

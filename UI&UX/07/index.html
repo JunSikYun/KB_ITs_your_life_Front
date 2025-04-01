@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    1. 웹 접근성(Web Accessibility)
+    -> 장애 유무, 환경, 연령에 관계 없이 누구나 웹 콘텐츠에 접근하고 이용할 수
+    있도록 하는 것을 의미
+    
+    필요한 이유?
+    -> 시각, 청각, 지체 장애를 가진 사용자들도 웹을 사용할 수 있도록 함
+    -> 고령자, 일시적 장애(팔 골정 등)도 포함
+    -> 법적 규제(장애인 차별 금지법)에 따라서 준수 필요
+    -> 검색 엔진 최적화(SEO)와도 연관이 있을 수 있음.
+
+    웹 접근성을 지키는 방법?
+    1. 시맨틱 태그(header, main, nav, section, article,
+    footer, aside, ... )
+    -> HTML4 -> HTML5
+    -> 태그 자체에 의미를 부여하는 것.
+    -> a -> 링크 -> 다른 페이지를 연결하기 위한 목적으로 사용하는 태그
+    -> href
+
+    2. WAI-ARIA (HTML 태그에서 사용할 수 있는 속성)
+    -> HTML 만으로는 접근성을 표현하기 어려운 동적 콘텐츠를 보완하기 위한 속성
+    -> (슈퍼 고급)
+    -> role : 요소의 역할을 지정할 때
+    -> aria-label : 시각적 텍스트 대시 스크린 리더용 설명을 제공
+    -> aria-labelledby : 다른 요소를 설명 텍스트로 사용
+    -> aria-hidden : 보조 기술(스크린 리더기) 무시하게 하는 속성
+    -> aria-expanded : 확장/축소 가능 여부를 표시하는 속성
+    -> aria-selected : 현재 선택된 항목 표시 속성
+    -> aria-describedy : 어떤 요소를 설명할 때 사용하는 속성
+    -->
+    <div id="custom-button">확인</div>
+    <style>
+        #custom-button{
+            display: inline-block;
+            background-color: blue;
+            color:white;
+            padding:10px 20px;
+            border-radius: 10px;
+            cursor:pointer;
+        }
+    </style>
+
+    <button>확인</button>
+    <button aria-label="확인">✅</button>
+
+    <h2 id="form-title">회원 가입 양식</h2>
+    <p>로그인으로 서비스를 모두 이용하세요</p>
+    <!--  -->
+    <form aria-labelledby="form-title">
+        <label for="">이메일 : <input type="email" /></label>
+    </form>
+
+    <!--  -->
+    <span aria-hidden="true">🌟</span>
+    <span>즐겨찾기</span>
+
+    <!--  -->
+    <hr/>
+    <button aria-expanded="true">메뉴</button>
+    <div id="menu">
+        <ul>
+            <li>홈</li>
+            <li>서비스</li>
+        </ul>
+    </div>
+
+    <!--  -->
+    <div class="tablist">
+        <button role="tab" aria-selected="true">탭 1</button>
+        <button role="tab" aria-selected="false">탭 2</button>
+    </div>
+
+    <!--  -->
+    <button aria-describedby="desc">삭제</button>
+    <p id="desc">이 버튼을 누르면 항목이 영구적으로 삭제됩니다.</p>
+</body>
+</html>

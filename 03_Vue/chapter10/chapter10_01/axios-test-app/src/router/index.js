@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-// import HomeView from '../views/HomeView.vue'
+// src/router/index.js
+import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -10,6 +10,6 @@ const router = createRouter({
       component: () => import('../views/BookList.vue'),
     },
   ],
-})
+});
 
-export default router
+export default router;
